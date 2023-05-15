@@ -1,6 +1,10 @@
-# example 2: on merge to master
-name: Bump version
+
+name: Bump Tag/Release Version
 on:
+  workflow_run:
+    workflows: ["Run All Tests"]
+    types: 
+      - completed
   pull_request:
     types:
       - closed
