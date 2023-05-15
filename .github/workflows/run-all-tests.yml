@@ -1,0 +1,19 @@
+name: Run All Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Placeholder Run all tests
+        run: echo Pretending to run all tests for now!!@#!@$%@#
