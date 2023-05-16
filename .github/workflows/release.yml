@@ -1,6 +1,10 @@
 name: "Release on Tag"
 
 on:
+  workflow_run:
+    workflows: ["Bump Tag Version"]
+    types: 
+        - completed
   push:
     tags:
       - "v*"

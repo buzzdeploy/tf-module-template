@@ -1,5 +1,5 @@
 
-name: Bump Tag/Release Version
+name: Bump Tag Version
 on:
   workflow_run:
     workflows: ["Run All Tests"]
