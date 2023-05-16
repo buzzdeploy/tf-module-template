@@ -9,6 +9,13 @@ on:
     branches:
       - main
 
+  # pull_request:
+  #   types:
+  #     - closed
+  #   branches:
+  #     - master
+
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -26,3 +33,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         WITH_V: true
         DEFAULT_BUMP: none
+        INITIAL_VERSION: 0.0.1
