@@ -13,11 +13,13 @@ jobs:
   tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: write
     steps:
       - name: Get Version
         id: version
         run: echo "TAG=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "release-${{ steps.version.outputs.TAG }}"
