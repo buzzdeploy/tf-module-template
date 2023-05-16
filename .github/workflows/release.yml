@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Bump Tag Version"]
     types: 
-        - completed
+      - completed
   push:
     tags:
       - "v*"
@@ -14,15 +14,15 @@ jobs:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
     steps:
-      - name: Extract tag name
-        id: tag_name
-        run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/v})"
+      - name: Get Version
+        id: version
+        run: echo "TAG=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "release-${{ steps.tag_name.outputs.tag }}"
+          automatic_release_tag: "release-${{ steps.version.outputs.TAG }}"
           prerelease: false
-          title: "Release ${{ steps.tag_name.outputs.tag }}"
+          title: "Release ${{ steps.version.outputs.TAG }}"
 
 
         # files: |
