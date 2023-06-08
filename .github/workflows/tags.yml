@@ -24,7 +24,8 @@ jobs:
       with:
         ref: ${{ github.sha }} # required for better experience using pre-releases
         fetch-depth: '10'
-
+    - name: Placeholder Run all tests
+      run: echo Pretending to run all tests for now!!@#!@$%@#
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.65.0 # Don't use @master or @v1 unless you're happy to test the latest version
       env:
