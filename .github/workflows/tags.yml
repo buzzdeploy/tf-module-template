@@ -1,10 +1,6 @@
 
 name: Bump Tag Version
 on:
-  workflow_run:
-    workflows: ["Run All Tests"]
-    types: 
-      - completed
   push:
     branches:
       - main
@@ -18,8 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: 
-      group: default
+    runs-on: runner-scale-set
     container:
       image: ubuntu:latest
     permissions:
