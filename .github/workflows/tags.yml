@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: dd-local-runner
+    runs-on: dd-linode-runner
     container:
       image: ubuntu:latest
     permissions:
