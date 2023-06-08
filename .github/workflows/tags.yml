@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: runner-scale-set
+    runs-on: dd-local-runner
     container:
       image: ubuntu:latest
     permissions:
