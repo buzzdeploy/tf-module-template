@@ -2,17 +2,16 @@
 on:
   workflow_call:
     inputs:
-	  command:
+      command:
         required: true
-	    description: 'Command for please-release'
-	    default: manifest 
-	    type: string
-	  release-type:
-		required: true
-		description: 'please-release release type'
-		default: simple
-		type: string
-
+        description: 'Command for please-release'
+        default: manifest
+        type: string
+      release-type:
+        required: true
+        description: 'please-release release type'
+        default: simple
+        type: string
 
 permissions:
   contents: write
