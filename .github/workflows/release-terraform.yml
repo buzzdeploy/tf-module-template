@@ -21,8 +21,9 @@ run-name: ${{ github.actor }} is releasing Terraform from ${{ github.repository 
 jobs:
   tag-new-version:
     runs-on: ubuntu-latest
-	steps:
+    steps:
 	  - run: echo "${{ github.actor }} is releasing Terraform from ${{ github.repository }}"
+	  - run: echo "Command= ${{ inputs.command }}, release-type= ${{ inputs.release-type }}"
 	#  outputs:
     #    release_created: ${{ steps.release-flag.outputs.release_created }}
     #  steps:
