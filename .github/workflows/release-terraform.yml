@@ -6,10 +6,11 @@ on:
         description: 'The name shown when executed'
         default: 'Running SAST 🚀'
         type: string
+
 name: SAST
-run-name: ${{ inputs.run-name }}
 jobs:
   sast:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Scanning..."
+    - name: taco 
+      run: echo "Scanning..."
