@@ -1,28 +1,19 @@
-name: terraform-release
 on:
   workflow_call:
     inputs:
-      command:
-        required: true
-        description: 'Command for please-release'
-        default: manifest
+      run-name:
+        required: false
+        description: 'The name shown when executed'
+        default: 'Running SAST 🚀'
         type: string
-      release-type:
-        required: true
-        description: 'please-release release type'
-        default: simple
-        type: string
-
-permissions:
-  contents: write
-  pull-requests: write
-
-run-name: ${{ github.actor }} is releasing Terraform from ${{ github.repository }}
+name: SAST
+run-name: ${{ inputs.run-name }}
 jobs:
-  release-please:
+  sast:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Success!!"
+      - run: echo "Scanning..."
+
 
 	  # - run: echo "Command= ${{ inputs.command }}, release-type= ${{ inputs.release-type }}"
 	#  outputs:
