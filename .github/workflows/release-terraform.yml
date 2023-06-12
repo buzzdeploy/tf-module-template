@@ -1,4 +1,4 @@
----
+name: terraform-release
 on:
   workflow_call:
     inputs:
@@ -17,7 +17,6 @@ permissions:
   contents: write
   pull-requests: write
 
-name: terraform-release
 run-name: ${{ github.actor }} is releasing Terraform from ${{ github.repository }}
 jobs:
   tag-new-version:
