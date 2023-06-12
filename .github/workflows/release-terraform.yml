@@ -1,11 +1,5 @@
 on:
   workflow_call:
-    inputs:
-      run-name:
-        required: false
-        description: 'The name shown when executed'
-        default: 'Running SAST 🚀'
-        type: string
 
 name: SAST
 jobs:
