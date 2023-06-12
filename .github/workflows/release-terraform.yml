@@ -13,19 +13,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Scanning..."
-
-
-	  # - run: echo "Command= ${{ inputs.command }}, release-type= ${{ inputs.release-type }}"
-	#  outputs:
-    #    release_created: ${{ steps.release-flag.outputs.release_created }}
-    #  steps:
-    #    - name: Create Release Tag
-    #      id: tag
-    #      uses: google-github-actions/release-please-action@v3
-    #      with:
-    #        command: ${{ inputs.command }}
-    #        release-type: ${{ inputs.release-type }} 
-    #    - id: release-flag
-    #      run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT
-
-
