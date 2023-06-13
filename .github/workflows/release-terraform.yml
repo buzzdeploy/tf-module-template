@@ -21,7 +21,7 @@ run-name: ${{ github.actor }} is releasing Terraform from ${{ github.repository 
 jobs:
   release-please:
     runs-on: ubuntu-latest
-	outputs:
+    outputs:
       release_created: ${{ steps.release-flag.outputs.release_created }}
     steps:
       - name: Create Release Tag
@@ -32,5 +32,3 @@ jobs:
           release-type: ${{ inputs.release-type }} 
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT
-
-
