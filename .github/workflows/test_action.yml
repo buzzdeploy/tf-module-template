@@ -1,0 +1,24 @@
+on:
+  push:
+#   workflow_run:
+#     workflows: [Run Tests]
+#     types:
+#         - completed
+
+
+permissions:
+  id-token: write
+  contents: read
+  repository-projects: read
+
+jobs:
+  test-actions:
+    runs-on: zm-local-arc
+    container:
+      image: ubuntu:latest
+    steps:
+
+      - name: Terraform Formatting Checks
+        uses: ./.github/actions/tf_fmt
+        with:
+          mode: auto-update
