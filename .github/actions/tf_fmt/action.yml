@@ -24,23 +24,22 @@ inputs:
     default: ${{ github.repository }}
     required: false
       
-jobs:
-  test-clean-k3d-install:
-    runs-on: ubuntu-latest 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-    - name: Validate
-      if: ${{ inputs.mode == 'validate' }} 
-      working-directory: ${{ github.action_path }}
-      run: ${{ github.action_path }}/tf_check.sh validate
-      env:
-        SHA: ${{ github.sha }}
-      shell: bash
-    - name: Auto Update Docs and Formatting
-      if: ${{ inputs.mode == 'auto-update' }} 
-      working-directory: ${{ github.action_path }}
-      run: ${{ github.action_path }}/tf_check.sh auto-update
-      env:
-        SHA: ${{ github.sha }}
-      shell: bash
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+  - name: Validate
+    if: ${{ inputs.mode == 'validate' }} 
+    working-directory: ${{ github.action_path }}
+    run: ${{ github.action_path }}/tf_check.sh validate
+    env:
+      SHA: ${{ github.sha }}
+    shell: bash
+  - name: Auto Update Docs and Formatting
+    if: ${{ inputs.mode == 'auto-update' }} 
+    working-directory: ${{ github.action_path }}
+    run: ${{ github.action_path }}/tf_check.sh auto-update
+    env:
+      SHA: ${{ github.sha }}
+    shell: bash

@@ -12,10 +12,12 @@ permissions:
   repository-projects: read
 
 jobs:
-  test-actions:
-    runs-on: zm-local-arc
-    container:
-      image: ubuntu:latest
+  test-formatting-and-docs:
+    runs-on: ubuntu-latest 
+  # test-actions:
+  #   runs-on: zm-local-arc
+    # container:
+    #   image: ubuntu:latest
     steps:
 
       - name: Terraform Formatting Checks
