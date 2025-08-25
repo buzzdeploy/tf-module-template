@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       issues: read
-    uses: buzzdeploy/test-cross-org-project-sync/.github/workflows/callable-project-sync.yaml
+    uses: buzzdeploy/test-cross-org-project-sync/.github/workflows/callable-project-sync.yaml@main
     with:
       destination_org: tf-acctest-org
       project_number: 2
