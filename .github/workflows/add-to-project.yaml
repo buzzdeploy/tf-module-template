@@ -1,0 +1,24 @@
+name: Add to Org Project
+on:
+  issues:
+    types: [opened, reopened, labeled, edited, transferred]
+  pull_request:
+    types: [opened, reopened, labeled, edited]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  add:
+    permissions:
+      contents: read
+      issues: read
+    uses: buzzdeploy/test-cross-org-project-sync/.github/workflows/callable-project-sync.yaml
+    with:
+      destination_org: tf-acctest-org
+      project_number: 2
+      # Optional label filter (only add when item has any of these labels)
+      filter_labels: "triage,needs-review"
+      label_operator: "OR"
+    secrets: inherit
